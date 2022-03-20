@@ -1,6 +1,15 @@
 $(document).ready(function(){
 
-  let dataToAdd=[];
+  var dataToAdd=[];
+
+  if(localStorage.getItem("logoImage") === null){
+
+  }else{
+    var retrievedImage = localStorage.getItem("logoImage");
+    $('#logoImage').attr('src', retrievedImage);
+  }
+
+
 
 
 $("#printQuote").on("click",function(){
@@ -24,22 +33,17 @@ $("#position69").text($("#empPos").val());
 
 
 
-
-
-
-
-
 $(".editableDIV").each(function(){
   this.contentEditable = true;
 });
 
+
 $("#logoUpload").change(function() {
   const file = this.files[0];
-  console.log(file);
   if (file) {
     let reader = new FileReader();
     reader.onload = function(event) {
-      console.log(event.target.result);
+      localStorage.setItem("logoImage", event.target.result);
       $('#logoImage').attr('src', event.target.result);
     }
     reader.readAsDataURL(file);
