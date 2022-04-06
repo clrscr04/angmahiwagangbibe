@@ -10,91 +10,140 @@
 </head>
 
 <body>
-  <h1>Simplified Quotation System</h1>
-  <div class="row">
-    <div class="col-lg-6 ">
-      <div class="partToFill">
-        <h4>Item to Add</h4>
-        <div class="row">
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="number" id = "pQuantity" placeholder="Quantity" value="1">
-          </div>
-          <div class="col-lg-6">
-              <input class="form-control form-control-sm" type="text" id = "pName" placeholder="Product Name" style="margin:0 !important;">
-          </div>
+
+<!-- quotation add start -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="quotationPop">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h3>Simplified Quotation System</h3>
         </div>
-        <textarea class="form-control form-control-sm" id = "pSpecs" placeholder="Specification" rows="8" col="10"></textarea>
-        <div class="row">
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="number" id = "pPrice" placeholder="Srp Price">
+        <div class="modal-body">
+          <div class="partToFill">
+            <h6>Item to Add</h6>
+            <div class="row">
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="number" id="pQuantity" placeholder="Quantity" value="1">
+              </div>
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="pName" placeholder="Product Name" style="margin:0 !important;">
+              </div>
+            </div>
+            <textarea class="form-control form-control-sm" id="pSpecs" placeholder="Specification" rows="8" col="10"></textarea>
+            <div class="row">
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="number" id="pPrice" placeholder="Srp Price">
+              </div>
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="number" id="pDiscount" placeholder="Discounted Price">
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" type="button" id="addUnit">Add Unit</button>
           </div>
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="number" id = "pDiscount" placeholder="Discounted Price">
+          <div class="partToFill">
+            <h4>Quotation Information</h4>
+            <label for="" style="">upload logo here</label>
+            <input type="file" class="form-control-file" id="logoUpload" style="margin-bottom:5px; display: inline !important;">
+            <div class="row">
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="clientName" placeholder="Client Name">
+              </div>
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="clientContactInfo" placeholder="Client Contact">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="Date" placeholder="Date">
+              </div>
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="rfqNumber" placeholder="Rfq Number">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="empName" placeholder="Employee Name">
+              </div>
+              <div class="col-lg-6">
+                <input class="form-control form-control-sm" type="text" id="empPos" placeholder="Employee Position">
+              </div>
+            </div>
           </div>
+          <button class="btn btn-sm btn-outline-primary" id="updateQuote">Update Quote Info</button>
         </div>
-        <button class="btn btn-sm btn-outline-primary" type="button" id = "addUnit">Add Unit</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
-      <div class="partToFill">
-        <h4>Quotation Information</h4>
-        <label for="" style = "">upload logo here</label>
-        <input type="file" class="form-control-file" id="logoUpload" style="margin-bottom:5px; display: inline !important;">
-        <div class="row">
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="text" id = "clientName" placeholder="Client Name">
-          </div>
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="text" id = "clientContactInfo" placeholder="Client Contact">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="text" id = "Date" placeholder="Date">
-          </div>
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="text" id = "rfqNumber" placeholder="Rfq Number">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="text" id = "empName" placeholder="Employee Name">
-          </div>
-          <div class="col-lg-6">
-            <input class="form-control form-control-sm" type="text" id = "empPos" placeholder="Employee Position">
-          </div>
-        </div>
+    </div>
+  </div>
+  <!-- quotation add end -->
+  <!-- quotation show button start -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quotationPop">
+  Start here
+</button>
+<!-- quotation show button end -->
+
+<div class="modal fade" tabindex="-2" role="dialog" id="quotationToSave">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6>To Save(insert &lt;/br&gt; when creating new line )</h6>
       </div>
-      <button class="btn btn-sm btn-outline-primary" id = "updateQuote">Update Quote Info</button>
+      <div class="modal-body">
+        <textarea class="form-control form-control-sm" id="inputAddress" placeholder="address" rows="8" col="10"></textarea>
+        <textarea class="form-control form-control-sm" id="inputNotes" placeholder="Additional Info" rows="8" col="10"></textarea>
+        <textarea class="form-control form-control-sm" id="inputContact" placeholder="Store Contact Info" rows="8" col="10"></textarea>
+        <button type="button" class="btn btn-primary" id="saveInformation">
+        Save
+      </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
     </div>
 
+  </div>
+</div>
 
-    <div class="col-lg-6">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quotationToSave">
+edit quotation address and info
+</button>
+
+
+
       <h4>Quotation Preview</h4>
-      <div class="printableDIV" id = "printableDIV">
-        <center><img class="logoImage" id = "logoImage" src="" alt=""></center>
+      <!-- print preview of quotation start -->
+      <div class="printableDIV" id="printableDIV">
+        <center><img class="logoImage" id="logoImage" src="" alt=""></center>
+        <div class="editableDIV addressLoc">
+          <span>Address here</span>
+        </div>
 
-        <table class="front" width = "100%">
+        <table class="front" width="100%">
           <tr>
             <td>
-              <table width = "60%">
+              <table width="60%">
                 <tr>
                   <td>Client Name:</td>
-                  <td class="tableOutput"><span id = "cNameToPrint">Client Name Here</span></td>
+                  <td class="tableOutput"><span id="cNameToPrint">Client Name Here</span></td>
                 </tr>
                 <tr>
                   <td>Client Contact Info:</td>
-                  <td class="tableOutput"><span id = "cInfoToPrint">Client Info Here</span></td>
+                  <td class="tableOutput"><span id="cInfoToPrint">Client Info Here</span></td>
                 </tr>
               </table>
             </td>
             <td>
-              <table width = "100%">
+              <table width="100%">
                 <tr>
                   <td>Date:</td>
-                  <td class="tableOutput"><span id = "dateToPrint">Date Here</span></td>
+                  <td class="tableOutput"><span id="dateToPrint">Date Here</span></td>
                 </tr>
                 <tr>
                   <td>RFQ:</td>
-                  <td class="tableOutput"><span id = "RfqToPrint">rfq info here</span></td>
+                  <td class="tableOutput"><span id="RfqToPrint">rfq info here</span></td>
                 </tr>
               </table>
             </td>
@@ -102,61 +151,60 @@
 
         </table>
 
-          <div class="editableDIV" id = "editableDIV">
-            <span>Dear Sir/Maam,<br/>
+        <div class="editableDIV greetingsDIV" id="editableDIV">
+          <span>Dear Sir/Maam,<br />
             Thank you for giving us the opportunity to give you this quotation.
-          Below are the summary of our offer;</span>
-          </div>
+            Below are the summary of our offer;</span>
+        </div>
 
-            <div class="deviceList">
-              <table id="itemList" class="display" width = "100%">
-                <thead>
-                  <tr>
-                    <td>Quantity</td>
-                    <td>Product Name</td>
-                    <td>Product Specs</td>
-                    <td>Product Price</td>
-                    <td>Product Discount</td>
-                    <td>sub Total</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                      <th colspan="5" style="text-align:right">Total:</th>
-                      <th></th>
-                  </tr>
-              </tfoot>
-              </table>
-
-            </div>
-
-            <div class="editableDIV">
-              <span>Notes Here</span>
-            </div>
-
-            <div class="editableDIV">
-              <span>Store Contact Info</span>
-            </div>
-
-            <table class="end">
+        <div class="deviceList">
+          <table id="itemList" class="display" width="100%">
+            <thead>
               <tr>
-                <td><span id = "nameInfo">Your name Here</span></td>
+                <td>Quantity</td>
+                <td>Product Name</td>
+                <td>Product Specs</td>
+                <td>Product Price</td>
+                <td>Product Discount</td>
+                <td>sub Total</td>
               </tr>
+            </thead>
+            <tbody>
               <tr>
-                <td style = "border-top: 2px solid black;"><span id = "position69">ang iyong katungkulan</span></td>
+
               </tr>
-            </table>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="5" style="text-align:right">Total:</th>
+                <th></th>
+              </tr>
+            </tfoot>
+          </table>
+
+        </div>
+
+        <div class="editableDIV notesDIV">
+          <span>Notes Here</span>
+        </div>
+
+        <div class="editableDIV contactDIV">
+          <span>Store Contact Info</span>
+        </div>
+
+        <table class="end">
+          <tr>
+            <td><span id="nameInfo">Your name Here</span></td>
+          </tr>
+          <tr>
+            <td style="border-top: 2px solid black;"><span id="position69">ang iyong katungkulan</span></td>
+          </tr>
+        </table>
 
 
       </div>
-            <button class="btn btn-sm btn-outline-primary" id = "printQuote" style = "margin-top: 10px;">Print Quotation</button>
-    </div>
-  </div>
+      <!-- print preview of quotation end -->
+      <button class="btn btn-sm btn-outline-primary" id="printQuote" style="margin-top: 10px;">Print Quotation</button>
 
 
 
@@ -171,6 +219,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" charset="utf-8"></script>
+  <script type="text/JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.js"></script>
   <script src="index.js" charset="utf-8"></script>
 </body>
 

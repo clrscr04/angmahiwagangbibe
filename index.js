@@ -2,6 +2,23 @@ $(document).ready(function(){
 
   var dataToAdd=[];
 
+  $("#inputAddress").text(localStorage.getItem("greetings"));
+  $("#inputNotes").text(localStorage.getItem("notes"));
+  $("#inputContact").text(localStorage.getItem("contact"));
+
+
+  if(localStorage.getItem("greetings") === null){
+
+  }else{
+    $(".addressLoc").html(localStorage.getItem("greetings"));
+    $(".notesDIV").html(localStorage.getItem("notes"));
+    $(".contactDIV").html(localStorage.getItem("contact"));
+  }
+
+
+
+
+
   if(localStorage.getItem("logoImage") === null){
 
   }else{
@@ -10,14 +27,16 @@ $(document).ready(function(){
   }
 
 
+$("#saveInformation").on("click",function(){
+  localStorage.setItem("greetings", $("#inputAddress").val());
+  localStorage.setItem("notes", $("#inputNotes").val());
+  localStorage.setItem("contact", $("#inputContact").val());
+});
+
 
 
 $("#printQuote").on("click",function(){
-  var printContents = document.getElementById("printableDIV").innerHTML;
-var originalContents = document.body.innerHTML;
-document.body.innerHTML = printContents;
-window.print();
-document.body.innerHTML = originalContents;
+  $("#printableDIV").print();
 });
 
 
