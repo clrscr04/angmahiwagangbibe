@@ -16,6 +16,15 @@ $(document).ready(function(){
   }
 
 
+  $("#saveInformation").on("click",function(){
+    localStorage.setItem("greetings", $("#inputAddress").val());
+    localStorage.setItem("notes", $("#inputNotes").val());
+    localStorage.setItem("contact", $("#inputContact").val());
+
+    $(".addressLoc").html(localStorage.getItem("greetings"));
+    $(".notesDIV").html(localStorage.getItem("notes"));
+    $(".contactDIV").html(localStorage.getItem("contact"));
+  });
 
 
 
@@ -27,11 +36,6 @@ $(document).ready(function(){
   }
 
 
-$("#saveInformation").on("click",function(){
-  localStorage.setItem("greetings", $("#inputAddress").val());
-  localStorage.setItem("notes", $("#inputNotes").val());
-  localStorage.setItem("contact", $("#inputContact").val());
-});
 
 
 
